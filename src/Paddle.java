@@ -93,9 +93,12 @@ public class Paddle implements Runnable
     public void setYDirection(int yDir) {yDirection = yDir;}
 
     @Override
-    public void run() {
-        try {
-            while(true) {
+    public void run()
+    {
+        try
+        {
+            while(true)
+            {
                 move();
                 Thread.sleep(7);
             }
