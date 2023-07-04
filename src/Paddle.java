@@ -29,6 +29,7 @@ public class Paddle implements Runnable
             case 1:
                 if (e.getKeyCode() == KeyEvent.VK_W) {setYDirection(-1);}
                 else if (e.getKeyCode() == KeyEvent.VK_S) {setYDirection(1);}
+                break;
 
             case 2:
                 if (e.getKeyCode() == KeyEvent.VK_UP) {setYDirection(-1);}
@@ -78,7 +79,7 @@ public class Paddle implements Runnable
                 break;
 
             case 1:
-                g.setColor(Color.CYAN);
+                g.setColor(Color.ORANGE);
                 g.fillRect(paddle.x, paddle.y, paddle.width, paddle.height);
                 break;
 

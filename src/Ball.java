@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
 
@@ -23,16 +24,16 @@ public class Ball implements Runnable
         // Seting ball to move randomly
         // For X direction:
         Random rand = new Random();
-        int rXDirection = rand.nextInt(1);
+        int rXDirection = rand.nextInt(2);
         if (rXDirection == 0)
             rXDirection--;
         setXDirection(rXDirection);
 
         // For Y direction:
-        int rYDirection = rand.nextInt(1);
+        int rYDirection = rand.nextInt(2);
         if (rYDirection == 0)
             rYDirection--;
-        setXDirection(rYDirection);
+        setYDirection(rYDirection);
 
         ball = new Rectangle(this.x, this.y, 15, 15);
     }
@@ -43,7 +44,7 @@ public class Ball implements Runnable
 
     public void draw(Graphics g)
     {
-        g.setColor(Color.PINK);
+        g.setColor(Color.WHITE);
         g.fillRect(ball.x, ball.y, ball.width, ball.height);
     }
 
@@ -67,10 +68,12 @@ public class Ball implements Runnable
         {
             setXDirection(1);
             p2Score++;
+            JOptionPane.showMessageDialog(null, "P1 Score: " + p1Score + "\nP2 Score: " + p2Score);
         }
         else if (ball.x >= 485) {
             setXDirection(-1);
             p1Score++;
+            JOptionPane.showMessageDialog(null, "P1 Score: " + p1Score + "\nP2 Score: " + p2Score);
         }
 
         else if (ball.y <= 15) {
@@ -82,12 +85,13 @@ public class Ball implements Runnable
         }
     }
 
-    }
-
     @Override
-    public void run() {
-        try {
-            while(true) {
+    public void run()
+    {
+        try
+        {
+            while(true)
+            {
                 move();
                 Thread.sleep(8);
             }
